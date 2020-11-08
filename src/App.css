@@ -7,6 +7,8 @@ body {
 }
 
 .mario-world {
+  position: absolute;
+  z-index: -1;
   background: url("mario-world.jpg");
   background-size: cover;
   width: 100%;
@@ -22,11 +24,24 @@ body {
 }
 
 .mario {
+  position: relative;
+  z-index: 2;
   background: url("mario.png");
   background-size: cover;
   width: 125px;
   height: 160px;
-  transition: transform 0.5s;
+  transition: transform 0.6s;
+}
+
+.lakitu {
+  position: fixed;
+  z-index: 2;
+  background: url("lakitu.png");
+  background-size: cover;
+  width: 126px;
+  height: 176px;
+  margin-bottom: 500px;
+  margin-left: 1000px;
 }
 
 .flip-over {
@@ -34,4 +49,10 @@ body {
   transform: scaleX(-1);
 }
 
-/* rotate(90deg); */
+.run {
+  transform: rotate(90deg);
+}
+
+.jump {
+  margin-bottom: 60px;
+}
