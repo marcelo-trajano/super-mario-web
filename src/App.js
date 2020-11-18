@@ -11,6 +11,11 @@ const MAX_Y = 570;
 const MIN_Y = 30;
 const MAX_X = 1230;
 const MIN_X = 30;
+const MOVE = 30;
+const PRESS_RIGHT_KEY = "ArrowRight";
+const PRESS_LEFT_KEY = "ArrowLeft";
+const PRESS_UP_KEY = "ArrowUp";
+const PRESS_DOWN_KEY = "ArrowDown";
 
 export default () => {
   const [pressed, setPressed] = useState([]);
@@ -32,54 +37,55 @@ export default () => {
       console.log(code);
 
       if (code === "Space") {
-        //setJump(true);
+        setJump(true);
+        //setJump(false);
       }
 
       if (ALLOWED_KEYS.includes(key) && !pressed.includes(key)) {
-        let pos = 0;
+        let position = 0;
 
         switch (key) {
-          case "ArrowRight":
+          case PRESS_RIGHT_KEY:
             setFlipOver(false);
             //setRun(true);
-            pos = parseInt(localStorage.getItem("positionX"));
-            if (pos < MAX_X) {
-              pos += 30;
-              localStorage.setItem("positionX", pos);
-              setPositionX(pos);
-              console.log("x: " + pos);
+            position = parseInt(localStorage.getItem("positionX"));
+            if (position < MAX_X) {
+              position += MOVE;
+              localStorage.setItem("positionX", position);
+              setPositionX(position);
+              console.log("x: " + position);
             }
             break;
 
-          case "ArrowLeft":
+          case PRESS_LEFT_KEY:
             setFlipOver(true);
             //setRun(true);
-            pos = parseInt(localStorage.getItem("positionX"));
-            if (pos >= MIN_X) {
-              pos -= 30;
-              localStorage.setItem("positionX", pos);
-              setPositionX(pos);
+            position = parseInt(localStorage.getItem("positionX"));
+            if (position >= MIN_X) {
+              position -= MOVE;
+              localStorage.setItem("positionX", position);
+              setPositionX(position);
             }
-            console.log("x: " + pos);
+            console.log("x: " + position);
             break;
 
-          case "ArrowUp":
-            pos = parseInt(localStorage.getItem("positionY"));
-            if (pos < MAX_Y) {
-              pos += 30;
-              localStorage.setItem("positionY", pos);
-              setPositionY(pos);
-              console.log("Y: " + pos);
+          case PRESS_UP_KEY:
+            position = parseInt(localStorage.getItem("positionY"));
+            if (position < MAX_Y) {
+              position += MOVE;
+              localStorage.setItem("positionY", position);
+              setPositionY(position);
+              console.log("Y: " + position);
             }
             break;
 
-          case "ArrowDown":
-            pos = parseInt(localStorage.getItem("positionY"));
-            if (pos >= MIN_Y) {
-              pos -= 30;
-              localStorage.setItem("positionY", pos);
-              setPositionY(pos);
-              console.log("Y: " + pos);
+          case PRESS_DOWN_KEY:
+            position = parseInt(localStorage.getItem("positionY"));
+            if (position >= MIN_Y) {
+              position -= MOVE;
+              localStorage.setItem("positionY", position);
+              setPositionY(position);
+              console.log("Y: " + position);
             }
             break;
         }
@@ -95,8 +101,8 @@ export default () => {
       <div className="mario-world">
         <div className="move-field">
           <div
-            className={`mario ${flipOver ? `flip-over` : ``}${
-              jump ? ` jump` : ``
+            className={`mario${flipOver ? ` flip-over` : ``}${
+              jump ? ` jump-up` : ``
             }`}
             style={{
               marginLeft: `${positionX}px`,
