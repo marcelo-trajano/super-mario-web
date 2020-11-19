@@ -38,7 +38,6 @@ export default () => {
 
       if (code === "Space") {
         setJump(true);
-        //setJump(false);
       }
 
       if (ALLOWED_KEYS.includes(key) && !pressed.includes(key)) {
@@ -47,7 +46,6 @@ export default () => {
         switch (key) {
           case PRESS_RIGHT_KEY:
             setFlipOver(false);
-            //setRun(true);
             position = parseInt(localStorage.getItem("positionX"));
             if (position < MAX_X) {
               position += MOVE;
@@ -59,7 +57,6 @@ export default () => {
 
           case PRESS_LEFT_KEY:
             setFlipOver(true);
-            //setRun(true);
             position = parseInt(localStorage.getItem("positionX"));
             if (position >= MIN_X) {
               position -= MOVE;
