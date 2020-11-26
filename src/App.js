@@ -22,7 +22,6 @@ export default () => {
   const [positionX, setPositionX] = useState(0);
   const [positionY, setPositionY] = useState(0);
   const [flipOver, setFlipOver] = useState(false);
-  //const [run, setRun] = useState(false);
   const [jump, setJump] = useState(false);
 
   useEffect(() => {
