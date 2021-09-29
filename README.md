@@ -1,5 +1,5 @@
 # super-mario-web
 
-HTML, JS, CSS
+React & HTML, JS, CSS
 
 under construction... 🚧
